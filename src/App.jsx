@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
 export default function App() {
   const [text, setText] = useState('')
@@ -45,3 +47,8 @@ export default function App() {
     </div>
   )
 }
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
