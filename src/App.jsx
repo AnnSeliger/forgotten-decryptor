@@ -1,19 +1,22 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+// Добавляем импорт CSS файла с Tailwind
+import './index.css'; // <--- Это уже есть
 
 export default function App() {
-  const [text, setText] = useState('')
-  const [result, setResult] = useState('')
+  const [text, setText] = useState('');
+  const [result, setResult] = useState('');
 
   const handleDecrypt = () => {
-    setResult(text.split('').reverse().join(''))
-  }
+    setResult(text.split('').reverse().join(''));
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white flex items-center justify-center px-4">
-      <motion.div 
+      <motion.div
         className="max-w-md w-full space-y-6 bg-white/5 p-8 rounded-2xl shadow-lg backdrop-blur"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,7 +26,7 @@ export default function App() {
         <textarea
           placeholder="Enter encrypted text..."
           value={text}
-          onChange={e => setText(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
           className="w-full p-3 bg-gray-800 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400"
           rows={4}
         />
@@ -34,7 +37,7 @@ export default function App() {
           Decrypt
         </button>
         {result && (
-          <motion.div 
+          <motion.div
             className="bg-gray-700 p-4 rounded-lg border border-gray-600 text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -45,10 +48,11 @@ export default function App() {
         )}
       </motion.div>
     </div>
-  )
+  );
 }
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-)
+);
